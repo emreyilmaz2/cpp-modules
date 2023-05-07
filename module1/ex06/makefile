@@ -1,0 +1,14 @@
+name = harlFilter
+compiler = c++
+flags= -Wall -Werror -Wextra -std=c++98
+files = $(wildcard *.cpp)
+
+all:$(files)
+	@$(compiler) $(flags) $(files) -o $(name)
+	@echo "\033[32mcompiled\033[0m"
+clean:
+	@rm -rf $(name)
+
+re: clean all
+
+.PHONY= re clean all
