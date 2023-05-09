@@ -2,13 +2,12 @@
 
 int main()
 {
-    // ilk kısım heap'te bir nesne oluşturmak istediğimiz zaman
-    Zombie emre;
-    Zombie *tester = emre.newZombie("aloo");
-    tester->announce();
+    Zombie emre = Zombie("emre"); // stack
+    Zombie *heap = newZombie("aloo"); //heap
 
-    std::cout<<std::endl;
-    // Bu kısım ise stack'te oluşturulan versiyonu
-    Zombie emres;
-    emres.randomChump("emres");
+    randomChump("ptr"); // stack ile daha hızlı oluşturulur
+    heap->announce();
+    emre.announce();
+    delete heap;
+    return(0);
 }

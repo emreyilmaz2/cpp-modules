@@ -7,14 +7,12 @@ const std::string &Weapon::get_type()
 
 void    Weapon::set_type(std::string new_type)
 {
-    this->type = new_type;
+    type = new_type;
 }
 
-Weapon::Weapon(std::string new_type)
-{
-    this->type = new_type;
-}
+Weapon::Weapon(std::string new_type):type(new_type){}
 
-Weapon::Weapon()
-{
+Weapon::Weapon(){}
+Weapon::~Weapon(){
+    std::cout << type << " died" << std::endl;
 }

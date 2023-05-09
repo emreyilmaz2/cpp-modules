@@ -2,15 +2,14 @@
 
 void    human_a::attack(void)
 {
-    std::cout << this->name << " attack with their " << this->weapon->get_type() << std::endl;
+    std::cout << this->name << " attack with their " << weapon_a.get_type() << std::endl;
 }
 
-human_a::human_a(std::string name, Weapon &new_weapon)
+human_a::human_a(std::string name, Weapon &new_weapon) : weapon_a(new_weapon)
 {
     this->name = name;
-    this->weapon = &new_weapon;
 }
 
-human_a::human_a()
-{
+human_a::~human_a(){
+	std::cout << name << " has died" << std::endl;
 }

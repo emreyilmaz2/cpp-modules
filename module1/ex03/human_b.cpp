@@ -5,8 +5,10 @@ human_b::human_b(std::string new_name)
     this->name = new_name;
 }
 
-human_b::human_b()
-{
+human_b::human_b(){}
+
+human_b::~human_b(){
+    std::cout << name << " has died" << std::endl;
 }
 
 void    human_b::attack(void)
