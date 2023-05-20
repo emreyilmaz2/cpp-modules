@@ -1,17 +1,18 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void){
-    // std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     this->setRawBits(0);
 }
+
 Fixed::Fixed(const int num) // convert integer to fixed point number
 {
     this->value = num << bits; //number * 2^8
-    // std::cout << "int to fixed" << this->value << std::endl;
+    std::cout << "int constructor called, value-> " << value << std::endl;
 }
 Fixed::Fixed(const float num){
     this->value = roundf(num * (1 << bits)); //roundf(number * 2^8)
-    // std::cout << "float to fixed" << this->value << std::endl;
+    std::cout << "float constructor called, value-> " << value << std::endl;
 }
 
 
@@ -59,22 +60,20 @@ void Fixed::setRawBits(int const raw){
 }
 
 Fixed Fixed::operator++(int){
-    Fixed a; // a++
-    a = this->toFloat();
+    Fixed old(*this); // a++ increment after copy
     this->value++;
-    return a;
+    return old;
 }
 
-Fixed &Fixed::operator++(){
-    this->value++; // ++a
-    return (*this);
+Fixed& Fixed::operator++(){
+	value++; //++a
+	return *this;
 }
 
 Fixed Fixed::operator--(int){
-    Fixed a; // a--
-    a = this->toFloat();
+    Fixed old(*this); // a--
     this->value--;
-    return a;
+    return old;
 }
 
 Fixed &Fixed::operator--(){
@@ -108,16 +107,16 @@ bool Fixed::operator==(const Fixed &temp) const{
 
 // overloade four operations in classic math
 Fixed Fixed::operator+(const Fixed &temp) const{
-    return(this->toFloat() + temp.toFloat());
+    return(Fixed(this->toFloat() + temp.toFloat()));
 }
 Fixed Fixed::operator-(const Fixed &temp) const{
-    return(this->toFloat() - temp.toFloat());
+    return(Fixed(this->toFloat() - temp.toFloat()));
 }
 Fixed Fixed::operator*(const Fixed &temp) const{
-    return(this->toFloat() * temp.toFloat());
+    return(Fixed(this->toFloat() * temp.toFloat()));
 }
 Fixed Fixed::operator/(const Fixed &temp) const{
-    return(this->toFloat() / temp.toFloat());
+    return(Fixed(this->toFloat() / temp.toFloat()));
 }
 
 Fixed& Fixed::min(Fixed &num1, Fixed &num2){

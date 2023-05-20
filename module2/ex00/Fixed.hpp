@@ -10,10 +10,10 @@ private:
     static const int bits = 8;
 public:
     Fixed();
-    Fixed(Fixed const &fixed);
-    Fixed(const int emres);
-    Fixed &operator=(Fixed const &other);
     ~Fixed();
+    Fixed(Fixed const &fixed);
+    Fixed &operator=(Fixed const &other);
+    
     int getRawBits(void) const;
     void setRawBits(int const raw);
 };

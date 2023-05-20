@@ -8,7 +8,6 @@ class Fixed
 {
 private:
     int value;
-    std::string name;
     static const int bits = 8;
 public:
     Fixed();
