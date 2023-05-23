@@ -4,28 +4,38 @@
 #include <iostream>
 
 class Animal{
-	public:
+	protected:
 		std::string type;
-		virtual std::string getType(void){return (this->type);}
+	public:
+		Animal();
+		Animal(std::string a_type);
+		Animal(const Animal& animal_copy);
+		Animal& operator=(const Animal& animal_copy);
+		virtual ~Animal();
+
+		virtual void makeSound(void) const;
+		std::string getType(void) const;
 };
 
 
 class Dog: public Animal{
-	private:
-		std::string name;
-	public:
-		Dog();
-		void makeSound(void);
-		std::string getType(void);
+public:
+	Dog();
+	Dog(const Dog& dog_copy);
+	Dog& operator=(const Dog& dog_copy);
+	~Dog();
+	
+	void makeSound(void) const;
 };
 
 class Cat: public Animal{
-	private:
-		std::string name;
-	public:
-		Cat();
-		void makeSound(void);
-	std::string getType(void);
+public:
+	Cat();
+	Cat(const Cat& cat_copy);
+	Cat& operator=(const Cat& cat_copy);
+	~Cat();
+
+	void makeSound(void) const;
 };
 
 #endif
