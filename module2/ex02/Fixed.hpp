@@ -17,10 +17,15 @@ public:
     Fixed &operator=(Fixed const &other);
     ~Fixed();
 
+    float toFloat(void) const;
+    int toInt(void) const;
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+
     Fixed operator++(int); //a++
     Fixed &operator++();   //++a
     Fixed operator--(int); //a--
-    Fixed &operator--();   //--a 
+    Fixed &operator--();   //--a
 
     bool operator>(const Fixed &temp) const; // bu üye fonksiyonları const olmalı
     bool operator>=(const Fixed &temp) const;// çünkü alınan degerde değişiklik yapmayacak bu fonksiyonlar
@@ -33,15 +38,11 @@ public:
     Fixed operator*(const Fixed &temp) const;
     Fixed operator/(const Fixed &temp) const;
 
-    static Fixed &min(Fixed &num1, Fixed &num2);
-    static const Fixed &min(const Fixed &num1, const Fixed &num2);
-    static Fixed &max(Fixed &num1, Fixed &num2);
-    static const Fixed &max(const Fixed &num1, const Fixed &num2);
+    static Fixed& min(Fixed &num1, Fixed &num2);
+    static const Fixed& min(const Fixed &num1, const Fixed &num2);
+    static Fixed& max(Fixed &num1, Fixed &num2);
+    static const Fixed& max(const Fixed &num1, const Fixed &num2);
 
-    float toFloat(void) const;
-    int toInt(void) const;
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
 };
 std::ostream& operator<<(std::ostream& os, const Fixed& other);
 

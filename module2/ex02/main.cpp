@@ -21,7 +21,7 @@ int main( void )
 	Fixed const c( Fixed( 5.05f ) / Fixed( 2 ) );
 	Fixed const d( Fixed( 5.05f ) + Fixed( 2 ) );
 	Fixed const e( Fixed( 5.05f ) - Fixed( 2 ) );
-	
+
 	std::cout << "********************arithmetic operators***********" << std::endl;
 	std::cout << "a toFloat= " << a << std::endl;
 	std::cout << "b toFloat= " << b << std::endl;
@@ -44,6 +44,6 @@ int main( void )
 		std::cout << "b=c " << std::endl;
 	else
 		std::cout << "b!=c " << std::endl;
-	
+
 	return 0;
 }

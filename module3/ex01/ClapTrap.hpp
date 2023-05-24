@@ -4,7 +4,7 @@
 #include <iostream>
 
 class ClapTrap{
-    private:
+    protected:
         std::string name;
         unsigned int hit_points; // health of claptrap
         unsigned int energy_points;

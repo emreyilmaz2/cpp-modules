@@ -15,7 +15,6 @@ Fixed::Fixed(const float num){
     std::cout << "float constructor called, value-> " << value << std::endl;
 }
 
-
 //fixed point to float
 float Fixed::toFloat(void) const{
     return ((float)value / (1 << bits)); // (number / 2^8)
@@ -25,10 +24,9 @@ int Fixed::toInt(void) const{
     return (value >> bits);// (number / 2^8)
 }
 
-
 //destructor
 Fixed::~Fixed(void){
-    // std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
 //copy constructor
@@ -36,7 +34,6 @@ Fixed::Fixed(Fixed const &fixed){
     std::cout << "Copy constructor called" << std::endl;
     *this = fixed;
 }
-
 
 
 Fixed &Fixed::operator=(Fixed const &other){
@@ -56,6 +53,7 @@ int Fixed::getRawBits(void) const{
 }
 
 void Fixed::setRawBits(int const raw){
+    std::cout << "setRawBits member function called" << std::endl;
     this->value = raw;
 }
 
@@ -67,6 +65,8 @@ Fixed Fixed::operator++(int){
 
 Fixed& Fixed::operator++(){
 	value++; //++a
+    std::cout << "float " << (float)value << std::endl;
+    std::cout << "int " << value << std::endl;
 	return *this;
 }
 

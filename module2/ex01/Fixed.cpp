@@ -18,15 +18,6 @@ Fixed::Fixed(const float num){
     std::cout << "FLOAT constructor called" << std::endl;
 }
 
-//fixed point to float
-float Fixed::toFloat(void) const{
-    return ((float)value / (1 << bits)); // (number / 2^8)
-}
-
-//fixed point to int
-int Fixed::toInt(void) const{
-    return (value >> bits);// (number / 2^8)
-}
 
 Fixed::~Fixed(void){
     std::cout << "Destructor called" << std::endl;
@@ -43,10 +34,6 @@ Fixed &Fixed::operator=(Fixed const &other){
     return (*this);
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& other){
-	os << other.toFloat();
-	return os;
-}
 
 int Fixed::getRawBits(void) const{
     std::cout << "getRawBits member function called" << std::endl;
@@ -56,4 +43,19 @@ int Fixed::getRawBits(void) const{
 void Fixed::setRawBits(int const raw){
     std::cout << "setRawBits member function called" << std::endl;
     this->value = raw;
+}
+
+//fixed point to float
+float Fixed::toFloat(void) const{
+    return ((float)value / (1 << bits)); // (number / 2^8)
+}
+
+//fixed point to int
+int Fixed::toInt(void) const{
+    return (value >> bits);// (number / 2^8)
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& other){
+	os << other.toFloat();
+	return os;
 }
