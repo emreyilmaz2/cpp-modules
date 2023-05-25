@@ -1,6 +1,7 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
+#include "Brain.hpp"
 #include <iostream>
 
 // Renkli çıktı için ANSI kaçış kodları
@@ -28,6 +29,8 @@ class Animal{
 
 
 class Dog: public Animal{
+private:
+	Brain* DogBrain;
 public:
 	Dog();
 	Dog(const Dog& dog_copy);
@@ -35,16 +38,20 @@ public:
 	~Dog();
 
 	void makeSound(void) const;
+	Brain* getBrain() const;
 };
 
 class Cat: public Animal{
+private:
+	Brain* CatBrain;
 public:
 	Cat();
-	Cat(const Cat& cat_copy);
-	Cat& operator=(const Cat& cat_copy);
+	Cat(const Cat& catCopy);
+	Cat& operator=(const Cat& catCopy);
 	~Cat();
 
 	void makeSound(void) const;
+	Brain* getBrain() const;
 };
 
 #endif
