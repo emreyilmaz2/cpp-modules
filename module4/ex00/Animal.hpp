@@ -1,5 +1,5 @@
-#ifndef POLYMORPHISM_HPP
-#define POLYMORPHISM_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 

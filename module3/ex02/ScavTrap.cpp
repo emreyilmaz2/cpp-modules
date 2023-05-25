@@ -26,6 +26,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& Scav_Copy){
 	ClapTrap::operator=(Scav_Copy);
 	guard_mode = Scav_Copy.guard_mode;
 	std::cout << "ScavTrap copy assigment operator called : " << name << std::endl;
+	return *this;
 }
 
 void	ScavTrap::attack(const std::string& target){
