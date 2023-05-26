@@ -14,12 +14,13 @@ class ClapTrap{
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap &copy);
         ClapTrap& operator=(const ClapTrap& Copy);
-        ~ClapTrap();
+        virtual ~ClapTrap();
 
         bool    is_dead() const;
-        void    attack(const std::string& target);
-        void    takeDamage(unsigned int amount);
+        virtual void    attack(const std::string& target);
+        virtual void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
+        unsigned int get_damage(){return attack_damage;}
 };
 
 #endif

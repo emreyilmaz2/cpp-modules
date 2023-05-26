@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap() : name("Default"), hit_points(10), energy_points(10), attack_damage(0)
 {
-    std::cout << "ClapTrap default constructor called : " << std::endl;
+    std::cout << "ClapTrap default constructor called : "<< name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hit_points(10), energy_points(10), attack_damage(0)
@@ -27,7 +27,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &Copy)
 
 
 ClapTrap::~ClapTrap(){
-    std::cout << "destructor called" << std::endl;
+    std::cout << "ClapTrap destructor called : " << name << std::endl;
 }
 
 
@@ -45,8 +45,8 @@ void    ClapTrap::beRepaired(unsigned int amount){
         return;
     this->hit_points += amount;
     this->energy_points --;
-    std::cout << "ClapTrap " + this->name + "is repairing itself " 
-        << amount << "points of health!" << std::endl;
+    std::cout << "ClapTrap " + this->name + " is repairing itself "
+        << amount << " points of health!" << std::endl;
     std::cout << "ClapTrap " << name << " remaining hit point : " << hit_points << std::endl;
 	std::cout << "ClapTrap " << name << " remaining energy point : " << energy_points << std::endl;
 }

@@ -4,10 +4,9 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap{
-
-private:
-    bool guard_mode;
 public:
+    bool guard_mode;
+
     ScavTrap();
     ScavTrap(std::string name);
     ScavTrap(const ScavTrap& copy);
@@ -16,7 +15,7 @@ public:
 
     void    attack(const std::string& target);
     void    takeDamage(unsigned int amount);
-    void    guard_Gate();
+    void    guardGate();
 };
 
 

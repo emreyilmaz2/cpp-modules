@@ -16,7 +16,7 @@ public:
 
     void    attack(const std::string& target);
     void    takeDamage(unsigned int amount);
-    void    guard_Gate();
+    void    guardGate();
 };
 
 

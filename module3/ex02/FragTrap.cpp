@@ -5,15 +5,14 @@ FragTrap::FragTrap() : ClapTrap(){
 	hit_points = 100;
 	energy_points = 100;
 	attack_damage = 30;
-	std::cout << " FragTrap default constructor called" << std::endl;
+	std::cout << "FragTrap default constructor called : "<< name << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-	name = "Default";
 	hit_points = 100;
 	energy_points = 100;
 	attack_damage = 30;
-	std::cout << "FragTrap name constructor called" << std::endl;
+	std::cout << "FragTrap name constructor called : "<< name << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& FragTrap_copy) : ClapTrap(FragTrap_copy){
@@ -27,7 +26,7 @@ FragTrap& FragTrap::operator=(const FragTrap& FragTrap_copy){
 }
 
 FragTrap::~FragTrap(){
-	std::cout << name << ": destructor called" << std::endl;
+	std::cout <<"FragTrap destructor called : " << name<< std::endl;
 }
 
 void FragTrap::HighFiveGuys(){

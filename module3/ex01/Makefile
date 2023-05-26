@@ -1,4 +1,4 @@
-name = ClapTrap
+name = ScavTrap
 files = $(wildcard *.cpp)
 flags = -Wall -Werror -Wextra -std=c++98
 compiler = g++
