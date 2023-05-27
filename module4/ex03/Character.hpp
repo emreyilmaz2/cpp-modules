@@ -9,6 +9,7 @@ std::string name;
 AMateria* inventory[4];
 public:
 	Character();
+	Character(std::string name);
 	Character(const Character& characterCopy);
 	Character& operator=(const Character& characterCopy);
 	~Character();

@@ -7,6 +7,7 @@ class ICharacter;
 
 class AMateria{
 	protected:
+		std::string type;
 	public:
 		AMateria();
 		AMateria(std::string name);
