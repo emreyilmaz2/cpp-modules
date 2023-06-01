@@ -9,6 +9,10 @@ std::string name;
 AMateria* inventory[4];
 public:
 	Character();
+<<<<<<< HEAD
+=======
+	Character(std::string name);
+>>>>>>> 41ba9194cd8204fc1805c01d202343d87d0adada
 	Character(const Character& characterCopy);
 	Character& operator=(const Character& characterCopy);
 	~Character();

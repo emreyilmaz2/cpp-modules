@@ -7,6 +7,10 @@ class ICharacter;
 
 class AMateria{
 	protected:
+<<<<<<< HEAD
+=======
+		std::string type;
+>>>>>>> 41ba9194cd8204fc1805c01d202343d87d0adada
 	public:
 		AMateria();
 		AMateria(std::string name);

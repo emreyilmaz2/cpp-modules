@@ -4,8 +4,11 @@
 #include "AMateria.hpp"
 
 class Cure : public AMateria{
+<<<<<<< HEAD
 	private:
 		std::string type;
+=======
+>>>>>>> 41ba9194cd8204fc1805c01d202343d87d0adada
 	public:
 		Cure();
 		Cure(const Cure& cureCopy);
@@ -13,6 +16,10 @@ class Cure : public AMateria{
 		~Cure();
 
 		void use(ICharacter& target);
+<<<<<<< HEAD
+=======
+		AMateria* clone() const;
+>>>>>>> 41ba9194cd8204fc1805c01d202343d87d0adada
 };
 
 #endif
