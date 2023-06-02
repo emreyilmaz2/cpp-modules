@@ -8,8 +8,8 @@ int main()
 		std::cout << "******test1*******" << std::endl;
 		std::cout << std::endl;
 
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const Animall* j = new Dog();
+		const Animall* i = new Cat();
 		std::cout << std::endl;
 
 		delete j;
@@ -38,7 +38,7 @@ int main()
 		std::cout << "******test3*******" << std::endl;
 		std::cout << std::endl;
 
-		const Animal* animal[10];
+		const Animall* animal[10];
 		for (int i = 0; i < 10; i++)
 		{
 			std::cout << std::endl;
@@ -63,8 +63,8 @@ int main()
 		std::cout << "******test4*******" << std::endl;
 		std::cout << std::endl;
 
-		const Animal* c1 = new Cat();
-		const Animal* c2 = new Cat(*dynamic_cast<Cat const *>(c1));
+		const Animall* c1 = new Cat();
+		const Animall* c2 = new Cat(*dynamic_cast<Cat const *>(c1));
 		std::cout << std::endl;
 		delete c1;
 		delete c2;
