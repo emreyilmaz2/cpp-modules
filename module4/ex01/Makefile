@@ -1,4 +1,4 @@
-name = animal
+name = brain
 files = $(wildcard *.cpp)
 flags = -Wall -Werror -Wextra -std=c++98
 compiler = g++

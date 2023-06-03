@@ -13,7 +13,6 @@ MateriaSource::MateriaSource(const MateriaSource& materiaCopy){
 		if(materiaCopy.Materias[i])
 			Materias[i] = materiaCopy.Materias[i]->clone();
 	}
-
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& materiaCopy)

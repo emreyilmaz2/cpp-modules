@@ -2,7 +2,7 @@
 
 // for animal class
 
-Animal::Animal() : type("nameless"){
+Animal::Animal() : type("Animal"){
 	std::cout << MAGENTA << type  << ": default constructor called" << RESET << std::endl;
 }
 Animal::Animal(std::string name) : type(name){
@@ -17,7 +17,7 @@ Animal& Animal::operator=(const Animal& animal_copy){
 	return *this;
 }
 Animal::~Animal(){
-	std::cout << RED << type << ": destructor called" << RESET << std::endl;
+	std::cout << RED << "Animal: destructor called" << RESET << std::endl;
 }
 void Animal::makeSound() const{
 	std::cout << MAGENTA <<type<< ": i'm making sound"<< RESET  << std::endl;

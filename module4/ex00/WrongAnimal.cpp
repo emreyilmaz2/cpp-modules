@@ -1,7 +1,7 @@
 #include "WrongAnimal.hpp"
 
 //this part for wrong animal class
-WrongAnimal::WrongAnimal() : type("typeless"){
+WrongAnimal::WrongAnimal() : type("WrongAnimal"){
     std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 WrongAnimal::WrongAnimal(std::string name) : type(name){
@@ -46,4 +46,8 @@ WrongCat::~WrongCat(){
 
 void WrongCat::makeSound(void) const {
     std::cout << "WrongCat is making noise : 'MEOW MEOW'" << std::endl;
+}
+
+std::string WrongCat::getType(void) const{
+    return type;
 }

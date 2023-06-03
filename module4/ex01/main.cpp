@@ -57,27 +57,15 @@ int main()
 			std::cout << std::endl;
 		}
 	}
-
 	{
 		std::cout << std::endl;
 		std::cout << "******test4*******" << std::endl;
 		std::cout << std::endl;
 
-		const Animal* c1 = new Cat();
-		const Animal* c2 = new Cat(*dynamic_cast<Cat const *>(c1));
-		std::cout << std::endl;
-		delete c1;
-		delete c2;
-	}
-
-	{
-		std::cout << std::endl;
-		std::cout << "******test5*******" << std::endl;
-		std::cout << std::endl;
-
 		Dog d1;
 		Dog d2 = d1;
-		d1.getBrain()->setIdeas("haha", 0);
+		for(int a = 0; a<10; a++)
+			d1.getBrain()->setIdeas("haha", a);
 
 		std::cout << std::endl;
 		for (int index = 0; index < 100; index++)

@@ -1,5 +1,6 @@
-name = animal
-files = $(wildcard *.cpp)
+name = animall
+files = $(wild
+card *.cpp)
 flags = -Wall -Werror -Wextra -std=c++98
 compiler = g++
 

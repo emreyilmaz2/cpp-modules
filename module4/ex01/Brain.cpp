@@ -3,7 +3,7 @@
 
 Brain::Brain(){
 	for ( int i=0; i < 100; i++)
-		ideas[i] = "erme ->" + std::to_string(i);
+		ideas[i] = "emre ->" + std::to_string(i);
 	std::cout << YELLOW << "Brain default constructor called" << RESET << std::endl;
 }
 Brain::Brain(const Brain& brainCopy){
