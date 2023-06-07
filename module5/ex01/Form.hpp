@@ -1,24 +1,24 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "iostream"
+#include <iostream>
 
 class Form{
 private:
-    const std::string   name;
-    bool                isSign;
-    const int           gradeToSign;
-    const int           gradeToExecute;
-
+    const std::string name;
+    bool isSigned;
+    const int gradeToSign;
+    const int gradeToExecute;
 public:
-    class GradeTooHighException : public std::exception{
-        public:
-        GradeTooHighException();
-    };
-    class GradeTooLowException : public std::exception{
-        public:
-        GradeTooLowException();
-    };
+    void setName( std::string newName );
+    void setGradeToSign( int gradeToSign);
+    void setGradeToExecute( int gradeToExecute);
+    
+    std::string getName( void );
+    int getGradeToSign( void );
+    int getGradeToExecute( void );
+
 };
+
 
 #endif
