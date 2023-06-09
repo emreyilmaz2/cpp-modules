@@ -2,6 +2,7 @@
 #define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form{
 private:
@@ -10,15 +11,34 @@ private:
     const int gradeToSign;
     const int gradeToExecute;
 public:
-    void setName( std::string newName );
-    void setGradeToSign( int gradeToSign);
-    void setGradeToExecute( int gradeToExecute);
-    
-    std::string getName( void );
-    int getGradeToSign( void );
-    int getGradeToExecute( void );
+    Form();
+    Form(std::string name, int gradeSign, int GradeExec);
+    Form(const Form& formCopy);
+    Form& operator=(const Form& formCopy);
+    ~Form();
 
+    std::string getName( void ) const;
+    int getGradeToSign( void ) const;
+    int getGradeToExecute( void ) const ;
+    bool getSign( void );
+
+    class GradeTooHighException : public std::exception{
+        public:
+        GradeTooHighException();
+    };
+    class GradeTooLowException : public std::exception{
+        public:
+        GradeTooLowException();
+    };
+    class NotEnoughToSign : public std::exception{
+        public:
+        NotEnoughToSign();
+    };
+
+    void beSigned(Bureaucrat& bureaucratCopy);
 };
+
+std::ostream& operator<<(std::ostream& o, const Form formCopy);
 
 
 #endif
