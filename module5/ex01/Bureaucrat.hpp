@@ -27,6 +27,8 @@ public:
         public:
         GradeTooLowException();
     };
+
+    void signForm( void );
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
