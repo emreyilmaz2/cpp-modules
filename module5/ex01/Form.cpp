@@ -5,14 +5,13 @@ Form::Form() : name("anonymous"), isSigned(false), gradeToSign(10), gradeToExecu
 }
 Form::Form(std::string name, int gradeSign, int GradeExec) : name(name), gradeToSign(gradeSign), gradeToExecute(GradeExec){
     isSigned = 0;
-    if(gradeSign < 1 || GradeExec   < 1)
-        Form::GradeTooHighException();
+    if(gradeSign < 1 || GradeExec < 1)
+        throw Form::GradeTooHighException();
     else if(GradeExec > 150 || gradeSign > 150)
-        Form::GradeTooLowException();
+        throw Form::GradeTooLowException();
     // std::cout << "Form parameter constructor called" << std::endl;
 }
-Form::Form(const Form& formCopy): name(formCopy.name), gradeToSign(formCopy.gradeToSign), gradeToExecute(gradeToExecute){
-    isSigned = 0;
+Form::Form(const Form& formCopy): name(formCopy.name), isSigned(formCopy.isSigned),  gradeToSign(formCopy.gradeToSign), gradeToExecute(formCopy.gradeToExecute) {
     // std::cout << "Form copy constructor called" << std::endl;
 }
 Form& Form::operator=(const Form& formCopy){
@@ -24,7 +23,7 @@ Form& Form::operator=(const Form& formCopy){
     return *this;
 }
 Form::~Form(){
-    // std::cout << "Form destructor called" << std::endl;
+    std::cout << "Form destructor called" << std::endl;
 }
 
 std::string Form::getName( void ) const{
@@ -36,18 +35,40 @@ int Form::getGradeToExecute( void ) const{
 int Form::getGradeToSign( void ) const{
     return (gradeToSign);
 }
-bool Form::getSign( void ){
+bool Form::getSign( void ) const{
     return (isSigned);
 }
 
 void Form::beSigned(Bureaucrat& bureaucratCopy){
+    std::cout << "Bureaucrat's grade: "<< bureaucratCopy.getGrade() << std::endl;
+    std::cout << "enough grade: "<< gradeToSign << std::endl;
     if(bureaucratCopy.getGrade() > gradeToSign)
         throw Form::NotEnoughToSign();
+    isSigned = true;
 }
 
 std::ostream& operator<<(std::ostream& o, const Form formCopy){
     o << "name: " << formCopy.getName() << std::endl;
     o << "grade to sign: " << formCopy.getGradeToSign() << std::endl;
     o << "grade to execute: " << formCopy.getGradeToExecute() << std::endl;
+    o << "sign: " <<std::boolalpha<< formCopy.getSign() << std::endl;
     return o;
+}
+
+Form::GradeTooHighException::GradeTooHighException(){
+    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
+    std::cout <<"Form's grade can't be higher than '1'"<<std::endl;
+    std::cout <<"<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>"<<std::endl;
+}
+
+Form::GradeTooLowException::GradeTooLowException(){
+    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
+    std::cout <<"Form's grade can't be lower than '150'"<<std::endl;
+    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+}
+
+Form::NotEnoughToSign::NotEnoughToSign(){
+    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
+    std::cout <<"Bureaucrat's grade is not enought to sign this form! "<<std::endl;
+    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
 }

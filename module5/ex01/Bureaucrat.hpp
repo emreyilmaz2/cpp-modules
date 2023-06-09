@@ -2,7 +2,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "iostream"
+#include <exception>
+
+class Form;
 
 class Bureaucrat{
 private:
@@ -19,6 +21,9 @@ public:
     int         getGrade() const;
     void        incrementGrade();
     void        decrementGrade();
+    
+    void signForm(const Form& formCopy) const;
+    
     class GradeTooHighException : public std::exception{
     public:
         GradeTooHighException();
@@ -27,8 +32,6 @@ public:
         public:
         GradeTooLowException();
     };
-
-    void signForm( void ){};
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);

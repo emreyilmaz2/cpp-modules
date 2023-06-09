@@ -1,7 +1,6 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class Form{
@@ -20,7 +19,7 @@ public:
     std::string getName( void ) const;
     int getGradeToSign( void ) const;
     int getGradeToExecute( void ) const ;
-    bool getSign( void );
+    bool getSign( void ) const;
 
     class GradeTooHighException : public std::exception{
         public:
