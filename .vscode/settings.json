@@ -68,7 +68,11 @@
         "chrono": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "__functional_03": "cpp",
+        "functional": "cpp",
+        "utility": "cpp",
+        "__functional_base": "cpp"
     },
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "enable"

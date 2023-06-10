@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // not sure these constructors and destructor should be in this class because it may be an exception class
 Bureaucrat::Bureaucrat() : _name("Ece Su"), _grade(1){
@@ -63,4 +64,11 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(){
     std::cout << std::endl << "<<<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>>" << std::endl;
     std::cout << "Grade's been reahed the down limit 150" << std::endl;
     std::cout << "<<<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>>" << std::endl;
+}
+
+void Bureaucrat::signForm(const Form& formCopy) const{
+    if(formCopy.getSign())
+        std::cout << getName() << " signed " << formCopy.getName() << std::endl;
+    else if(getGrade() > formCopy.getGradeToSign())
+        std::cout << getName() << " couldn't sign " << formCopy.getName() << "because the grade is too low" << std::endl;
 }
