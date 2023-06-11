@@ -30,5 +30,11 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const{
     std::cout << "#   ~    >o<  \\---------o{___}-        #" << std::endl;
     std::cout << "#  /  |  \\  /  ________/8'             #" << std::endl;
     std::cout << "#  |  |       /         \"              #" << std::endl;
-    std::cout << "#  |  /      |                         #" << std::endl;   
+    std::cout << "#  |  /      |                         #" << std::endl;
+    srand(time(0));
+    int random_number = rand() % 101;
+    if(random_number <= 50)
+        std::cout << getName() << " has been robotomized successfully 50% of the time : " << random_number << std::endl;
+    else if(random_number > 50)
+        std::cout << getName() << " robotomization process has been failed! : " << random_number << std::endl;
 }

@@ -1,23 +1,18 @@
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(){
-    Bureaucrat a("emre", 25);
     try{
-        for(int i=0; i<126; i++)
-            a.decrementGrade();
-    }catch(const std::exception& e){
-        std::cerr << e.what() << '\n';
+        Bureaucrat buro("emre", 44 );
+        ShrubberyCreationForm shrub("emres");
+        RobotomyRequestForm robo("target_robo");
+        robo.beSigned(buro);
+        shrub.beSigned(buro);
+        shrub.execute(buro);
+        robo.execute(buro);
     }
-
-    try{
-    Bureaucrat bc("sude", 0);
-    }catch(const std::exception& e){
-        std::cerr << e.what() << '\n';
+    catch(const std::exception& e){
+        std::cerr << e.what() << std::endl;
     }
-    try{
-    Bureaucrat bc("sude", 220);
-    }catch(const std::exception& e){
-        std::cerr << e.what() << '\n';
-    }
-
 }

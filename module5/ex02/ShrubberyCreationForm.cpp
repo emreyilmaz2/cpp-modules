@@ -53,23 +53,3 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 ShrubberyCreationForm::~ShrubberyCreationForm(){
     // std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
-
-int main(){
-
-    try{
-        // Bureaucrat b("bureaucrat01", 140);
-        // Bureaucrat a("burea01", 18);
-        // ShrubberyCreationForm emre("emre");
-        // emre.beSigned(a);
-        // b.signForm(emre);
-        Bureaucrat b3("b3", 150);
-        ShrubberyCreationForm s2("Shrubbery");
-		s2.beSigned(b3);
-		b3.signForm(s2);
-		b3.executeForm(s2);
-		std::cout << std::endl;
-    }
-    catch(const std::exception& e){
-        std::cerr << e.what() << std::endl;
-    }
-}
