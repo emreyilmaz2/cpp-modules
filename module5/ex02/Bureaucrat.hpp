@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "iostream"
+#include "AForm.hpp"
 
 class Bureaucrat{
 private:
@@ -28,7 +28,8 @@ public:
         GradeTooLowException();
     };
 
-    void signForm( void );
+    void signForm( const AForm& aform ) const;
+    void executeForm(const AForm& form);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);

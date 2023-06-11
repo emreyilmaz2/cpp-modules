@@ -64,3 +64,14 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(){
     std::cout << "Grade's been reahed the down limit 150" << std::endl;
     std::cout << "<<<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>>" << std::endl;
 }
+
+void Bureaucrat::signForm(const AForm& aform) const{
+    if(aform.getSign())
+        std::cout << getName() << " signed the form '" << aform.getName() << "'" << std::endl;
+    else
+        std::cout << getName() << " could not sign form: " << aform.getName() << " because the grade is too low!!" << std::endl;
+}
+void Bureaucrat::executeForm(const AForm& form){
+    form.execute(*this);
+    std::cout << getName() + " executed " + form.getName() << std::endl;
+}

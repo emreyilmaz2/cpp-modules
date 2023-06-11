@@ -2,6 +2,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm{
 private:
@@ -12,7 +13,7 @@ public:
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& sCopy);
     ~ShrubberyCreationForm();
 
-    
+    void execute(Bureaucrat const & executor) const;
 };
 
 #endif

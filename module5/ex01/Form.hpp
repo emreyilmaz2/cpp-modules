@@ -5,10 +5,10 @@
 
 class Form{
 private:
-    const std::string name;
-    bool isSigned;
-    const int gradeToSign;
-    const int gradeToExecute;
+    const       std::string name;
+    bool        isSigned;
+    const int   gradeToSign;
+    const int   gradeToExecute;
 public:
     Form();
     Form(std::string name, int gradeSign, int GradeExec);
@@ -16,10 +16,10 @@ public:
     Form& operator=(const Form& formCopy);
     ~Form();
 
-    std::string getName( void ) const;
-    int getGradeToSign( void ) const;
-    int getGradeToExecute( void ) const ;
-    bool getSign( void ) const;
+    const std::string getName( void ) const;
+    int         getGradeToSign( void ) const;
+    int         getGradeToExecute( void ) const ;
+    bool        getSign( void ) const;
 
     class GradeTooHighException : public std::exception{
         public:

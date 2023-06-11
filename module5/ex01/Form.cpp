@@ -26,7 +26,7 @@ Form::~Form(){
     std::cout << "Form destructor called" << std::endl;
 }
 
-std::string Form::getName( void ) const{
+const std::string Form::getName( void ) const{
     return (name);
 }
 int Form::getGradeToExecute( void ) const{

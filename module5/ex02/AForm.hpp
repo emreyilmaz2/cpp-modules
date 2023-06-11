@@ -21,7 +21,7 @@ public:
     std::string getName( void ) const;
     int getGradeToSign( void ) const;
     int getGradeToExecute( void ) const ;
-    bool getSign( void );
+    bool getSign( void ) const;
 
     class GradeTooHighException : public std::exception{
         public:
@@ -31,9 +31,21 @@ public:
         public:
         GradeTooLowException();
     };
+    class NotEnoughToSign : public std::exception{
+        public:
+        NotEnoughToSign();
+    };
+    class NotEnoughToExecute : public std::exception{
+        public:
+        NotEnoughToExecute();
+    };
+    class FileCreationException : public std::exception{
+        public:
+        FileCreationException();
+    };
 
     void beSigned(Bureaucrat& bureaucratCopy);
-    virtual void execute() const = 0;
+    virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& o, const AForm& formCopy);
