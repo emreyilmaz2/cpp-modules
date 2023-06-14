@@ -1,5 +1,5 @@
 #ifndef FORM_HPP
-# define FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
 
@@ -13,6 +13,7 @@ private:
     const int gradeToExecute;
 public:
     AForm();
+
     AForm(std::string name, int gradeSign, int GradeExec);
     AForm(const AForm& formCopy);
     AForm& operator=(const AForm& AformCopy);
