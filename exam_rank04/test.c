@@ -1,7 +1,6 @@
-#include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
-
+#include <unistd.h>
 
 int ft_putstr_fd2(char *str, char *arg)
 {
@@ -20,8 +19,9 @@ int ft_execute(char *av[], int i, int tmp_fd, char *env[])
     dup2(tmp_fd, STDIN_FILENO);
     close(tmp_fd);
     execve(av[0], av, env);
-    return(ft_putstr_fd2("error: cannot execute " , av[0]));
+    return(ft_putstr_fd2("error: cannot execute ", av[0]));
 }
+
 
 int main(int ac, char *av[], char *env[])
 {
@@ -40,7 +40,7 @@ int main(int ac, char *av[], char *env[])
             i++;
         if(strcmp(av[0], "cd") == 0)
         {
-            if(i!=2)
+            if(i != 2)
                 ft_putstr_fd2("error: cd: bad arguments", NULL);
             else if(chdir(av[1]) != 0)
                 ft_putstr_fd2("error: cd: cannot change directory to ", av[1]);
@@ -52,7 +52,8 @@ int main(int ac, char *av[], char *env[])
                 if(ft_execute(av, i, tmp_fd, env))
                     return(1);
             }
-            else{
+            else
+            {
                 close(tmp_fd);
                 while(waitpid(-1, NULL, WUNTRACED) != -1)
                     ;
@@ -70,9 +71,10 @@ int main(int ac, char *av[], char *env[])
                 if(ft_execute(av, i, tmp_fd, env))
                     return(1);
             }
-            else{
-                close(fd[1]);
+            else
+            {
                 close(tmp_fd);
+                close(fd[1]);
                 tmp_fd = fd[0];
             }
         }
