@@ -6,7 +6,7 @@
 /*   By: emreyilmaz <emreyilmaz@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:28:26 by emreyilmaz        #+#    #+#             */
-/*   Updated: 2023/06/14 15:58:20 by emreyilmaz       ###   ########.fr       */
+/*   Updated: 2023/06/14 16:06:52 by emreyilmaz       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ Form* Intern::makeForm(const std::string& formName, const std::string& target) {
     return nullptr;
 }
 
-Form* Intern::createShrubberyCreationForm(const std::string& target) {
-    Form* formy = ShrubberyCreationForm(target);
-    return new ShrubberyCreationForm(target);
-}
+// Form* Intern::createShrubberyCreationForm(const std::string& target) {
+//     Form* formy = ShrubberyCreationForm(target);
+//     return formy;
+// }
 
-Form* Intern::createRobotomyRequestForm(const std::string& target) {
-    return new RobotomyRequestForm(target);
-}
+// Form* Intern::createRobotomyRequestForm(const std::string& target) {
+//     return new RobotomyRequestForm(target);
+// }
 
-Form* Intern::createPresidentialPardonForm(const std::string& target) {
-    return new PresidentialPardonForm(target);
-}
+// Form* Intern::createPresidentialPardonForm(const std::string& target) {
+//     return new PresidentialPardonForm(target);
+// }

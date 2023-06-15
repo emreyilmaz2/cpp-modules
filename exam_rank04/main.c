@@ -44,7 +44,7 @@ int	main(int ac, char *av[], char *env[])
 			if (i != 2)
 				ft_putstr_fd2("error: cd: bad arguments", NULL);
 			else if (chdir(av[1]) != 0)
-				ft_putstr_fd2("error: cd: cannot change directory to ", av[1]	);
+				ft_putstr_fd2("error: cd: cannot change directory to ", av[1]);
 		}
 		else if (i != 0 && (av[i] == NULL || strcmp(av[i], ";") == 0)) //exec in stdout
 		{
