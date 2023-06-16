@@ -11,35 +11,66 @@
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "ShrubberyCreationForm.hpp"
 
-
-const Intern::FormCreator Intern::formCreators[] = {
-    { "shrubbery creation", &Intern::createShrubberyCreationForm },
-    { "robotomy request", &Intern::createRobotomyRequestForm },
-    { "presidential pardon", &Intern::createPresidentialPardonForm }
-};
-
-const int Intern::NUM_FORM_CREATORS = sizeof(Intern::formCreators) / sizeof(Intern::FormCreator);
-
-
-Form* Intern::makeForm(const std::string& formName, const std::string& target) {
-    for (int i = 0; i < NUM_FORM_CREATORS; ++i)
-        if (formName == formCreators[i].name)
-            return formCreators[i].creator(target);
-    std::cout << "Invalid form name: " << formName << std::endl;
-    return nullptr;
+Intern::Intern(){
+    forms[0] = new PresidentialPardonForm();
+    forms[1] = new ShrubberyCreationForm();
+    forms[2] = new RobotomyRequestForm();
+    // std::cout << "Intern default constructor called" << std::endl;
+}
+Intern::Intern(const Intern& internCopy){
+    (void)internCopy;
+    forms[0] = new PresidentialPardonForm();
+    forms[1] = new ShrubberyCreationForm();
+    forms[2] = new RobotomyRequestForm();
+    // std::cout << "Intern copy constructor called" << std::endl;
 }
 
-// Form* Intern::createShrubberyCreationForm(const std::string& target) {
-//     Form* formy = ShrubberyCreationForm(target);
-//     return formy;
-// }
+Intern& Intern::operator=(const Intern& internCopy){
+    (void)internCopy;
+    forms[0] = new PresidentialPardonForm();
+    forms[1] = new ShrubberyCreationForm();
+    forms[2] = new RobotomyRequestForm();
+    // std::cout << "Intern copy constructor called" << std::endl;
+    return (*this);
+}
+Intern::~Intern(){
+    // std::cout << "Intern destructor called" << std::endl;
+}
 
-// Form* Intern::createRobotomyRequestForm(const std::string& target) {
-//     return new RobotomyRequestForm(target);
-// }
+const char	*Intern::FormNotFound::what() const throw() {
+	return ("Form Not Found");
+}
 
-// Form* Intern::createPresidentialPardonForm(const std::string& target) {
-//     return new PresidentialPardonForm(target);
-// }
+std::string handleString(std::string str)
+{
+    int i = -1;
+    std::string newstr;
+    while(str[++i])
+    {
+        if(!(str[i] <= 32))
+            newstr += str[i];
+    }
+    return newstr;
+}
+
+AForm* Intern::makeForm(const std::string& formName, const std::string& target){
+    bool isCreated = false;
+    AForm* formy;
+    std::string aForm[3] = {"presidentialpardon", "shrubberycreation", "robotomyrequest"};
+    for(int i = 0; i < 3; i++){
+        std::cout << handleString(aForm[i]) << std::endl;
+        if(formName.compare(handleString(aForm[i])))
+        {
+            formy = forms[i]->clone(target);
+            isCreated = true;
+            break;
+        }
+    }
+    if(isCreated){
+        std::cout << "Intern Creates " + formName << std::endl;
+        return formy;
+    }
+    else
+        throw Intern::FormNotFound();
+}

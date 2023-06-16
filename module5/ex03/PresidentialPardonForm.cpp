@@ -1,8 +1,11 @@
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm() : AForm(){
+    // std::cout << "PresidentalPardonForm default constructor called" << std::endl;
+}
 PresidentialPardonForm::PresidentialPardonForm(const std::string newTarget) : AForm(newTarget, 25, 5){
-    std::cout << "PresidentalPardonForm default constructor called" << std::endl;
+    // std::cout << "PresidentalPardonForm default constructor called" << std::endl;
 }
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& preCopy) : AForm(preCopy){
     // std::cout << "PresidentalPardonForm copy constructor called" << std::endl;
@@ -22,4 +25,9 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const{
     else if(executor.getGrade() > getGradeToExecute())
         throw  AForm::NotEnoughToExecute();
     std::cout << getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+AForm* PresidentialPardonForm::clone(std::string target)
+{
+    return(new PresidentialPardonForm(target));
 }

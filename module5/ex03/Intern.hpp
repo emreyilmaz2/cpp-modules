@@ -2,27 +2,25 @@
 # define INTERN_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 class Intern {
 public:
-    Form* makeForm(const std::string& formName, const std::string& target);
+    Intern();
+    Intern(const Intern& internCopy);
+    Intern& operator=(const Intern& internCopy);
+    ~Intern();
 
-private:
-    struct FormCreator {
-        std::string name;
-        Form* (*creator)(const std::string&);
+    AForm* makeForm(const std::string& formName, const std::string& target);
+
+    class FormNotFound : public std::exception{
+        const char* what() const throw();
     };
 
-    static Form* createShrubberyCreationForm(const std::string& target);
-    static Form* createRobotomyRequestForm(const std::string& target);
-    static Form* createPresidentialPardonForm(const std::string& target);
-
-    static const FormCreator formCreators[];
-
-    static const int NUM_FORM_CREATORS;
+private:
+    AForm *forms[3];
 };
 #endif

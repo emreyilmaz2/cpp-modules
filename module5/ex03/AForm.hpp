@@ -47,6 +47,7 @@ public:
 
     void beSigned(Bureaucrat& bureaucratCopy);
     virtual void execute(Bureaucrat const & executor) const = 0;
+    virtual AForm* clone(std::string target) = 0;
 };
 
 std::ostream& operator<<(std::ostream& o, const AForm& formCopy);
