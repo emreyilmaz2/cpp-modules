@@ -9,8 +9,7 @@ int main(void)
 	Bureaucrat b5;
 	b4 = b5;
 
-	std::cout << std::endl;
-	
+	std::cout << std::endl;	
 	try
 	{
 		Bureaucrat b6("b6", 155);
