@@ -23,7 +23,7 @@ Form& Form::operator=(const Form& formCopy){
     return *this;
 }
 Form::~Form(){
-    std::cout << "Form destructor called" << std::endl;
+    std::cout << name << " : Form destructor called" << std::endl;
 }
 
 const std::string Form::getName( void ) const{
@@ -40,8 +40,6 @@ bool Form::getSign( void ) const{
 }
 
 void Form::beSigned(Bureaucrat& bureaucratCopy){
-    std::cout << "Bureaucrat's grade: "<< bureaucratCopy.getGrade() << std::endl;
-    std::cout << "enough grade: "<< gradeToSign << std::endl;
     if(bureaucratCopy.getGrade() > gradeToSign)
         throw Form::NotEnoughToSign();
     isSigned = true;
@@ -56,11 +54,11 @@ std::ostream& operator<<(std::ostream& o, const Form& formCopy){
     return o;
 }
 const char * Form::GradeTooHighException::what() const throw(){
-    return("Form's grade can't be higher than <1>");
+    return("\n <<< Form's grade can't be higher than '1' >>> \n");
 }
 const char * Form::GradeTooLowException::what() const throw(){
-    return("Form's grade can't be lower than <150>");
+    return("\n <<< Form's grade can't be lower than '150' >>> \n");
 }
 const char * Form::NotEnoughToSign::what() const throw(){
-    return("Bureaucrat's grade is not enought to sign this form!");
+    return("\n <<< Bureaucrat's grade is not enought to sign this form! >>> \n");
 }

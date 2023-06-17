@@ -25,24 +25,24 @@ public:
     bool getSign( void ) const;
 
     class GradeTooHighException : public std::exception{
-        public:
-        GradeTooHighException();
+    public:
+        const char *what() const throw();
     };
     class GradeTooLowException : public std::exception{
-        public:
-        GradeTooLowException();
+    public:
+        const char *what() const throw();
     };
     class NotEnoughToSign : public std::exception{
-        public:
-        NotEnoughToSign();
+    public:
+        const char *what() const throw();
     };
     class NotEnoughToExecute : public std::exception{
         public:
-        NotEnoughToExecute();
+        const char *what() const throw();
     };
     class FileCreationException : public std::exception{
         public:
-        FileCreationException();
+        const char *what() const throw();
     };
 
     void beSigned(Bureaucrat& bureaucratCopy);

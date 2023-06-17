@@ -26,17 +26,12 @@ int main(void)
 	{
 		std::cout << "=========Test 2=========" << std::endl;
 		Form f3("f3", 50, 30);
-		Form f4 = f3;
 		f3.beSigned(b1);
-		f4.beSigned(b2);
 
 		b1.signForm(f3);
-		b2.signForm(f4);
 		std::cout << std::endl;
 
 		std::cout << f3 << std::endl;
-		std::cout << std::endl;
-		std::cout << f4 << std::endl;
 		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
@@ -46,7 +41,7 @@ int main(void)
 
 	try
 	{
-		std::cout << "==========Test 3==========" << std::endl;
+		std::cout << std::endl << "==========Test 3==========" << std::endl;
 		Form f5("f5", 50, 11);
 		f5.beSigned(b2);
 

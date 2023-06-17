@@ -1,4 +1,4 @@
-name = bureaucrat
+name = form
 files = $(wildcard *.cpp)
 compiler = g++
 flags = -Wall -Werror -Wextra -std=c++98

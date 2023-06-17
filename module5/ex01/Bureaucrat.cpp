@@ -55,10 +55,10 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat){
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw(){
-    return("Grade's been reahed the up limit 1");
+    return("\n <<< Grade's been reahed the up limit 1 >>> \n");
 }
 const char * Bureaucrat::GradeTooLowException::what() const throw(){
-    return("Grade's been reahed the down limit 150");
+    return("\n <<< Grade's been reahed the down limit 150 >>> \n");
 }
 
 void Bureaucrat::signForm(const Form& formCopy) const{

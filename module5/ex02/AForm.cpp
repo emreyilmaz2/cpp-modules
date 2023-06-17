@@ -59,18 +59,18 @@ std::ostream& operator<<(std::ostream& o, const AForm& AformCopy){
 }
 
 const char * AForm::GradeTooHighException::what() const throw(){
-    return("Form's grade can't be higher than <1>");
+    return("\n <<< Form's grade can't be higher than '1' >>> \n");
 }
 const char * AForm::GradeTooLowException::what() const throw(){
-    return("Form's grade can't be lower than <150>");
+    return("\n <<< Form's grade can't be lower than '150' >>> \n");
 }
 const char * AForm::NotEnoughToSign::what() const throw(){
-    return("Bureaucrat's grade is not enought to sign this form!");
+    return("\n <<< Bureaucrat's grade is not enought to sign this form! >>> \n");
 }
 const char * AForm::NotEnoughToExecute::what() const throw(){
-    return("Bureaucrat's grade is not enough to execute this Aform!");
+    return("\n <<< Bureaucrat's grade is not enough to execute this Aform! >>> \n");
 }
 const char * AForm::FileCreationException::what() const throw(){
-    return("An error occurred while opening the file.");
+    return("\n <<< An error occurred while opening the file. >>> \n");
 }
 

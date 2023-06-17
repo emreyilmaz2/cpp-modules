@@ -61,7 +61,6 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target){
     AForm* formy;
     std::string aForm[3] = {"presidentialpardon", "shrubberycreation", "robotomyrequest"};
     for(int i = 0; i < 3; i++){
-        std::cout <<"donen deger: "<< formName.compare(handleString(aForm[i])) << " string : " << aForm[i]<<std::endl;
         if(!formName.compare(handleString(aForm[i])))
         {
             formy = forms[i]->clone(target);
@@ -78,5 +77,5 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target){
 }
 
 const char	*Intern::FormNotFound::what() const throw() {
-    return ("Form Not Found");
+    return ("\n <<< Form Not Found >>> \n");
 }
