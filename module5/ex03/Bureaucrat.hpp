@@ -21,12 +21,13 @@ public:
     void        decrementGrade();
     class GradeTooHighException : public std::exception{
     public:
-        GradeTooHighException();
+        const char * what() const throw();
     };
     class GradeTooLowException : public std::exception{
         public:
-        GradeTooLowException();
+        const char * what() const throw();
     };
+
 
     void signForm( const AForm& aform ) const;
     void executeForm(const AForm& form);

@@ -6,7 +6,7 @@ flags = -Wall -Werror -Wextra -std=c++98
 all:$(files)
 	$(compiler) $(flags) $(files) -o $(name)
 clean:
-	@rm -rf name
+	@rm -rf $(name)
 
 re: clean all
 

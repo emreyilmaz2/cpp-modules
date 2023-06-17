@@ -55,21 +55,12 @@ std::ostream& operator<<(std::ostream& o, const Form& formCopy){
     o << "sign: " <<std::boolalpha<< formCopy.getSign() << std::endl;
     return o;
 }
-
-Form::GradeTooHighException::GradeTooHighException(){
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"Form's grade can't be higher than '1'"<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>"<<std::endl;
+const char * Form::GradeTooHighException::what() const throw(){
+    return("Form's grade can't be higher than <1>");
 }
-
-Form::GradeTooLowException::GradeTooLowException(){
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"Form's grade can't be lower than '150'"<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+const char * Form::GradeTooLowException::what() const throw(){
+    return("Form's grade can't be lower than <150>");
 }
-
-Form::NotEnoughToSign::NotEnoughToSign(){
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"Bureaucrat's grade is not enought to sign this form! "<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+const char * Form::NotEnoughToSign::what() const throw(){
+    return("Bureaucrat's grade is not enought to sign this form!");
 }

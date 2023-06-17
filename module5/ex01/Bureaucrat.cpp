@@ -54,16 +54,11 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat){
     return os;
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(){
-    std::cout << std::endl << "<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>" << std::endl;
-    std::cout << "Grade's been reahed the up limit 1" << std::endl;
-    std::cout << "<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>" << std::endl;
+const char * Bureaucrat::GradeTooHighException::what() const throw(){
+    return("Grade's been reahed the up limit 1");
 }
-
-Bureaucrat::GradeTooLowException::GradeTooLowException(){
-    std::cout << std::endl << "<<<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>>" << std::endl;
-    std::cout << "Grade's been reahed the down limit 150" << std::endl;
-    std::cout << "<<<<<<<<<<<<<<<<ERROR>>>>>>>>>>>>>>>>" << std::endl;
+const char * Bureaucrat::GradeTooLowException::what() const throw(){
+    return("Grade's been reahed the down limit 150");
 }
 
 void Bureaucrat::signForm(const Form& formCopy) const{

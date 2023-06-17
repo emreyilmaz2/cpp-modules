@@ -58,33 +58,19 @@ std::ostream& operator<<(std::ostream& o, const AForm& AformCopy){
     return o;
 }
 
-AForm::GradeTooHighException::GradeTooHighException(){
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"AForm's grade can't be higher than '1'"<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>"<<std::endl;
+const char * AForm::GradeTooHighException::what() const throw(){
+    return("Form's grade can't be higher than <1>");
 }
-
-AForm::GradeTooLowException::GradeTooLowException(){
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"AForm's grade can't be lower than '150'"<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+const char * AForm::GradeTooLowException::what() const throw(){
+    return("Form's grade can't be lower than <150>");
 }
-
-AForm::NotEnoughToSign::NotEnoughToSign(){
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"Bureaucrat's grade is not enough to sign this Aform! "<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+const char * AForm::NotEnoughToSign::what() const throw(){
+    return("Bureaucrat's grade is not enought to sign this form!");
 }
-
-AForm::NotEnoughToExecute::NotEnoughToExecute(){   
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"Bureaucrat's grade is not enough to execute this Aform! "<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+const char * AForm::NotEnoughToExecute::what() const throw(){
+    return("Bureaucrat's grade is not enough to execute this Aform!");
 }
-
-AForm::FileCreationException::FileCreationException(){   
-    std::cout <<"<<<<<<<<<<<<<<<Error!>>>>>>>>>>>>>>"<<std::endl;
-    std::cout <<"An error occurred while opening the file."<<std::endl;
-    std::cout <<"<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>"<<std::endl;
+const char * AForm::FileCreationException::what() const throw(){
+    return("An error occurred while opening the file.");
 }
 

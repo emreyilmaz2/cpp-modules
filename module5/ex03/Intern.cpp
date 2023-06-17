@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include <iostream>
+#include <stdlib.h>
 
 Intern::Intern(){
     forms[0] = new PresidentialPardonForm();
@@ -36,11 +38,11 @@ Intern& Intern::operator=(const Intern& internCopy){
 }
 Intern::~Intern(){
     // std::cout << "Intern destructor called" << std::endl;
+    delete forms[0];
+    delete forms[1];
+    delete forms[2];
 }
 
-const char	*Intern::FormNotFound::what() const throw() {
-	return ("Form Not Found");
-}
 
 std::string handleString(std::string str)
 {
@@ -59,8 +61,8 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target){
     AForm* formy;
     std::string aForm[3] = {"presidentialpardon", "shrubberycreation", "robotomyrequest"};
     for(int i = 0; i < 3; i++){
-        std::cout << handleString(aForm[i]) << std::endl;
-        if(formName.compare(handleString(aForm[i])))
+        std::cout <<"donen deger: "<< formName.compare(handleString(aForm[i])) << " string : " << aForm[i]<<std::endl;
+        if(!formName.compare(handleString(aForm[i])))
         {
             formy = forms[i]->clone(target);
             isCreated = true;
@@ -73,4 +75,8 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target){
     }
     else
         throw Intern::FormNotFound();
+}
+
+const char	*Intern::FormNotFound::what() const throw() {
+    return ("Form Not Found");
 }
