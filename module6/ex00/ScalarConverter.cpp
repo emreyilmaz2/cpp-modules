@@ -4,15 +4,24 @@
 // std::cout << "int: "
 // std::cout << "float: "
 // std::cout << "double: "
+int count(std::string str, unsigned int start, unsigned int end, char c)
+{
+    unsigned int counter = 0;
+    for(;start<end; start++){
+        if(str[start] == c)
+            counter++;
+    }
+    return counter;
+}
+
 bool isWrongNumber(std::string & str)
 {
     size_t i;
-
     if(str[0] == '+' || str[0] == '-')
-        if(std::count(str.begin(), str.end(), '-') + std::count(str.begin(), str.end(), '+') != 1)
+        if(count(str, 0, str.size(), '-') + count(str, 0, str.size(), '+') != 1)
             return true;
-    if((std::count(str.begin(), str.end(), 'f') > 1 || std::count(str.begin(), str.end(), '.') > 1) ||
-        ((std::count(str.begin(), str.end(), 'f') == 1) && str[str.size() - 1] != 'f'))
+    if((count(str, 0, str.size(), 'f') > 1 || count(str, 0, str.size(), '.') > 1) ||
+        ((count(str, 0,str.size(), 'f') == 1) && str[str.size() - 1] != 'f'))
             return true;
     for(i = 0; i < str.size(); i++)
         if(!isdigit(str[i]) && str[0] != '-' && str[0] != '+' && str[i] != 'f' && str[i] != '.')

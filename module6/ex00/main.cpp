@@ -1,16 +1,20 @@
 #include "iostream"
 #include "ScalarConverter.hpp"
 #include <unistd.h>
+#include <sstream>
 
 bool isValid(std::string &str)
 {
-    char temp;
+    //char temp;
+    std::ostringstream stream;
+
     if(is_it_for_science(str))
         return (true);
     if((str.length() == 1) && isalpha(str[0]))
     {
-        temp = static_cast<int>(str[0]);
-        str = temp;
+        stream << static_cast<int>(str[0]);
+        str = stream.str();
+        //temp = static_cast<int>(str[0]);
         return (true);
     }
     if(isWrongNumber(str))
