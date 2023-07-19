@@ -13,7 +13,6 @@ private:
     const int gradeToExecute;
 public:
     AForm();
-
     AForm(std::string name, int gradeSign, int GradeExec);
     AForm(const AForm& formCopy);
     AForm& operator=(const AForm& AformCopy);
