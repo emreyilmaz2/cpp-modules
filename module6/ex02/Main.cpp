@@ -11,6 +11,5 @@ int main()
 	}
 	identify(Base);
 	identify(*Base);
-
 	delete Base;	
 }
