@@ -38,12 +38,12 @@ public:
     }
 
     T& operator[](size_t index){
-        if(index >= size)
+        if(index >= length)
             throw Array::outOfBounds();
         return elements[index];
     }
     const T& operator[](size_t index) const{
-        if(index >= size)
+        if(index >= length)
             throw Array::outOfBounds();
         return elements[index];
     }
