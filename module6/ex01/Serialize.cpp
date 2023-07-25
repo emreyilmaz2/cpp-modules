@@ -55,3 +55,9 @@ Data* deserialize(uintptr_t raw){
     // std::cout << "serialize function called" << std::endl;
     return reinterpret_cast<Data*>(raw);
 }
+
+
+// reinterpret_cast, C++'da kullanılan bir tür casting operatörüdür. 
+// Dönüşümden önceki ve sonraki veri tipleri farklı olsa bile, bir veri tipindeki bir göstericiyi 
+// başka bir veri tipindeki bir göstericiye dönüştürmek için kullanılır. 
+// İşaretçi tipinin ve işaretçinin işaret ettiği verinin aynı olup olmadığını kontrol etmez.

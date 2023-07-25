@@ -1,9 +1,14 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
+// template oldugu icin header da tanimlanmasi gerekiyor  
+// hatta pdf de header da fonksyion implement(tanimlamak) 
+// yasak diyor sayet templateler haric
+
 #include <iostream>
 
-template<typename T> class Array{
+template<typename T>
+class Array{
 private:
     T* elements;
     size_t length;
@@ -72,8 +77,7 @@ boş bir dizi oluşturulmasını belirtir. Yani, Array nesnesi oluşturulduğund
 Bu gereklilik, Array sınıfının bir nesnesi oluşturulurken bir unsigned int türündeki n parametresinin geçilmesi durumunda, 
 n adet elemanı olan bir dizi oluşturulmasını belirtir. Bu durumda, dizinin elemanları varsayılan değerle (default value) başlatılacaktır.
 
-3) Construction by copy and assignment operator. In both cases, modifying either the original array or its copy after copying mustn’t affect the other array.
-Bu gereklilik, Array sınıfının nesnelerinin kopyalanması veya atama işlemi yapılması durumunda, orijinal dizinin veya kopyanın birbirini etkilememesi 
+ Bu gereklilik, Array sınıfının nesnelerinin kopyalanması veya atama işlemi yapılması durumunda, orijinal dizinin veya kopyanın birbirini etkilememesi 
 gerektiğini belirtir. Yani, kopyalama veya atama işlemi gerçekleştirildikten sonra orijinal dizi veya kopya üzerinde yapılan değişiklikler, diğerini etkilememelidir.
 
 4) You MUST use the operator new[] to allocate memory. Preventive allocation (allocating memory in advance) is forbidden. Your program must never access nonallocated memory.

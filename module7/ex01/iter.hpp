@@ -9,8 +9,9 @@ void iter(t *str, unsigned int length, void(*function)(t &arg)){
         function(str[i]);
     }
 }
-template <typename t> void call(t& a){
-    std::cout << a << " ";
+
+template <typename turna> void call(turna& a){
+    std::cout << a << " fnekajnfkale\n";
 }
 // template<typename t, typename func>
 // void iter(t *str, unsigned int length, func function){
