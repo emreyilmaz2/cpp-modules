@@ -41,6 +41,7 @@ int main()
     }
     
 
+    std::cout << std::endl;
     // trying stack with characters
     MutantStack<char> charStack;
     charStack.push('a');

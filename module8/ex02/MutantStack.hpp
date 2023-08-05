@@ -13,14 +13,10 @@ public:
     ~MutantStack();
     
     typedef typename std::stack<T>::container_type::iterator iterator;
-    iterator begin(){
-        return this->c.begin();
-    }
-    iterator end(){
-        return this->c.end();
-    }
-    // iterator begin() const;
-    // iterator end() const;
+    iterator begin();
+    iterator end();
+    iterator begin() const;
+    iterator end() const;
 };
 
 #endif
