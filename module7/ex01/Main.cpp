@@ -13,7 +13,7 @@ int main() {
 
 
     // Fonksiyon şablonunu çağırma
-    ::iter(numbers, 5, call);
+    ::iter(numbers, 5, &call);
     std::cout << std::endl;
     ::iter(str, 4, call);
     // Çıktı: 1 4 9 16 25

@@ -72,8 +72,9 @@
         "__functional_03": "cpp",
         "functional": "cpp",
         "utility": "cpp",
-        "__functional_base": "cpp"
+        "__functional_base": "cpp",
+        "span": "cpp"
     },
     "cmake.configureOnOpen": false,
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "enabled"
 }
