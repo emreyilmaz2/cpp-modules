@@ -4,9 +4,9 @@ int main()
 {
     // trying containers with integers
     try{
-        int array[] = {0, 1, 2, 3, 4, 5, 6, 9};
-        std::cout << "index of the 5 is : " << ::easyfind(array, 5) << std::endl;
-        std::cout << "index of the 9 is : " << ::easyfind(array, 9) << std::endl;
+        char array[] = {'a', 'b', 'd', 'c', 'e', 'y', 'q', 'w'};
+        std::cout << "index of the d is : " << ::easyfind(array, 'd') << std::endl;
+        std::cout << "index of the y is : " << ::easyfind(array, 'y') << std::endl;
     }
     catch(const std::exception& e){
         std::cerr << e.what() << '\n';

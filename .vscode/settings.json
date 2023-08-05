@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.hpp": "cpp",
         "ostream": "cpp",
         "__bit_reference": "cpp",
         "__hash_table": "cpp",
@@ -73,7 +74,8 @@
         "functional": "cpp",
         "utility": "cpp",
         "__functional_base": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "*.tpp": "cpp"
     },
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "enabled"
