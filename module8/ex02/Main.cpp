@@ -45,7 +45,6 @@ int main()
     MutantStack<char> charStack;
     charStack.push('a');
     charStack.push('b');
-    charStack.push('c');
     MutantStack<char>::iterator itStart = charStack.begin();
     MutantStack<char>::iterator itEnd = charStack.end();
     while(itStart != itEnd)
