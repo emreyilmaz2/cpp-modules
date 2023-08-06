@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <span>
+#include <vector>
 
 class Span{
 private:
