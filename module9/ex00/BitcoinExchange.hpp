@@ -20,7 +20,7 @@ static void howMuchDoTheyWorth(std::map<std::string, float> &db, std::fstream &i
     while(getline(ifs, row)){
         if(row == "date | value")
             continue;
-        sub = row.substr(0, row.find('|'));
+        sub = row.substr(0, row.find('|') - 1);
         value = std::stof(row.substr(row.find('|')+2, row.length()));
         if(std::count(row.begin(), row.end(), '|') < 1)
             std::cout << "Error: bad input => " << row << std::endl;
@@ -30,16 +30,16 @@ static void howMuchDoTheyWorth(std::map<std::string, float> &db, std::fstream &i
             std::cout << "Error: too large a number." << std::endl;
         else{
             for(std::map<std::string, float>::iterator it = db.begin(); it != db.end(); it++){
-            if(sub == it->first || sub < it->first)
-            {
-                std::cout << sub << " " << it->second * value << std::endl;
-                break;
-            }
-            // else if(sub < it->first)
-            // {
-            //     std::cout << sub << " " << it->second * value << std::endl;
-            //     break;
-            // }
+                if(!sub.compare(it->first)){
+                    std::cout << sub << " => " << value << " = " << it->second * value << std::endl;
+                    break;
+                }
+                else if(it->first > sub)
+                {
+                    std::cout << sub << " => " << value << " = " << (--it)->second * value << std::endl;
+                    it++;
+                    break;
+                }
         }
         }
     }

@@ -75,7 +75,9 @@
         "utility": "cpp",
         "__functional_base": "cpp",
         "span": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "map": "cpp",
+        "__tree": "cpp"
     },
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "enabled"
