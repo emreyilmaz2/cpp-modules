@@ -1,41 +1,39 @@
 #include "BitcoinExchange.hpp"
 
-// void getDateAndValue(std::string &row, float &value, std::string& sub){
-//     sub = row.substr(0, row.find('|'));
-//     value = std::stof(row.substr(row.find('|')+2, row.length()));
-// }
+bool isValid(const std::string &row, float &value){
+    if(std::count(row.begin(), row.end(), '|') < 1){
+        std::cout << "Error: bad input => " << row << std::endl;
+        return false;
+    }
+    else if(value < 0){
+        std::cout << "Error: not a positive number." << std::endl;
+        return false;
+    }
+    else if(value > 1000){
+        std::cout << "Error: too large a number." << std::endl;
+        return false;
+    }
+    return true;
+}
 
 // Bu fonksiyonda tarihe göre elimizde bulunan bitcoinlerin o anki döviz kuruyla
 // karşılaştırılarak ne kadar değeri olduğunu bulmamıza yarar.
 void howMuchDoTheyWorth(std::map<std::string, double> &db, std::fstream &ifs){
-    std::string row;
-    std::string sub;
+    std::string row, sub;
     float value;
     getline(ifs, row);
     while(getline(ifs, row)){
-        // if(row == "date | value")
-        //     continue;
         sub = row.substr(0, row.find('|') - 1);
         value = std::stof(row.substr(row.find('|')+2, row.length()));
-        if(std::count(row.begin(), row.end(), '|') < 1)
-            std::cout << "Error: bad input => " << row << std::endl;
-        else if(value < 0)
-            std::cout << "Error: not a positive number." << std::endl;
-        else if(value > 1000)
-            std::cout << "Error: too large a number." << std::endl;
+        if(!isValid(row, value))
+            continue;
         else{
-            for(std::map<std::string, double>::iterator it = db.begin(); it != db.end(); it++){
-                if(!sub.compare(it->first)){
-                    std::cout << sub << " => " << value << " = " << it->second * value << std::endl;
-                    break;
-                }
-                else if(it->first > sub)
-                {
-                    std::cout << sub << " => " << value << " = " << (--it)->second * value << std::endl;
-                    // it++;
-                    break;
-                }
-            }
+            std::map<std::string, double>::iterator it = db.find(sub);
+            std::map<std::string, double>::iterator it_equal = db.lower_bound(sub);
+            if(it != db.end())
+                std::cout << sub << " => " << value << " = " << it->second * value << std::endl;
+            else if(it_equal != db.end())
+                std::cout << sub << " => " << value << " = " << (--it_equal)->second * value << std::endl;
         }
     }
 }
