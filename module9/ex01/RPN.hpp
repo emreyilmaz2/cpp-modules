@@ -5,7 +5,7 @@
 #include <stack>
 
 bool isValidExpression(const std::string& expression);
-static int doCalculate(const std::string& s);
+int doCalculate(const std::string& s);
 
 
 #endif

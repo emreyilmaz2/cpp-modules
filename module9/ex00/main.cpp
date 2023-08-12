@@ -3,8 +3,8 @@
 int main(int argc, char *argv[])
 {
     std::fstream inputStream (argv[1], std::ios::in);
-    std::fstream dbStream (argv[2], std::ios::in);
-    if(argc != 3){
+    std::ifstream strs(argv[1]);
+    if(argc != 2){
         std::cerr << " Error: wrong argument count. " << std::endl;
         return (1);
     }
@@ -12,13 +12,10 @@ int main(int argc, char *argv[])
         std::cout << " Error: could not open file. " "-> " << argv[1] << std::endl;
         return (1);
     }
-    else if(!dbStream.is_open()){
-        std::cout << " Error: could not open file. " "-> " << argv[2] << std::endl;
-        return (1);
-    }
-    std::map<std::string, float> mydb;
-    fillDataBase(mydb, dbStream);
+    std::map<std::string, double> mydb;
+    fillDataBase(mydb);
     howMuchDoTheyWorth(mydb, inputStream);
+    inputStream.close();
 }
 
 

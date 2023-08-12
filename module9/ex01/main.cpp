@@ -10,4 +10,6 @@ int main(int argc, char *argv[])
         std::cout << "Error" << std::endl;
         return (1);
     }
+    int res = doCalculate(argv[1]);
+    std::cout << res << std::endl;
 }
