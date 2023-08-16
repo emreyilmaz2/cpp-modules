@@ -30,6 +30,28 @@ void mergesortForVector(std::vector<int> &input, std::vector<int> &right, std::v
         input[k++] = left[j++];
 }
 
+void mergeForVector(std::vector<int> &inputArray){
+    int inputLenght = inputArray.size();
+    if(inputLenght < 2)
+        return ;
+    
+    int midIndex = inputLenght / 2;
+    std::vector<int> leftHalf(midIndex);
+    std::vector<int> rightHalf(inputLenght - midIndex);
+
+    for(unsigned long i = 0; i < leftHalf.size(); i++){
+        leftHalf[i] = inputArray[i];
+    }
+    for(int i = midIndex; i < inputLenght; i++){
+        // rightHalf.push_back(inputArray[i - midIndex]);
+        rightHalf[i - midIndex] = inputArray[i];
+    }
+
+    mergeForVector(leftHalf);
+    mergeForVector(rightHalf);
+
+    mergesortForVector(inputArray, rightHalf, leftHalf);
+}
 void mergesortForList(std::list<int> &input, std::list<int> &right, std::list<int> &left){
     std::list<int>::iterator itInput = input.begin();
     // std::list<int>::iterator ite_i = input.end();
@@ -63,6 +85,7 @@ void mergesortForList(std::list<int> &input, std::list<int> &right, std::list<in
         itLeft++;
     }
 }
+
 
 void mergeForList(std::list<int> &inputArray){
     std::list<int>::iterator itInput = inputArray.begin();
@@ -103,25 +126,3 @@ void mergeForList(std::list<int> &inputArray){
     mergesortForList(inputArray, rightHalf, leftHalf);
 }
 
-void mergeForVector(std::vector<int> &inputArray){
-    int inputLenght = inputArray.size();
-    if(inputLenght < 2)
-        return ;
-    
-    int midIndex = inputLenght / 2;
-    std::vector<int> leftHalf(midIndex);
-    std::vector<int> rightHalf(inputLenght - midIndex);
-
-    for(unsigned long i = 0; i < leftHalf.size(); i++){
-        leftHalf[i] = inputArray[i];
-    }
-    for(int i = midIndex; i < inputLenght; i++){
-        // rightHalf.push_back(inputArray[i - midIndex]);
-        rightHalf[i - midIndex] = inputArray[i];
-    }
-
-    mergeForVector(leftHalf);
-    mergeForVector(rightHalf);
-
-    mergesortForVector(inputArray, rightHalf, leftHalf);
-}
